@@ -37,7 +37,7 @@ jobs:
 
       - name: Build the AAR
         run: |
-          ./gradlew clean assembleRelease
+          ./gradlew :auth-legacy:assembleRelease
 
       - name: Upload AAR as artifact
         uses: actions/upload-artifact@v4
