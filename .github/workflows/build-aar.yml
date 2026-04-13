@@ -39,11 +39,19 @@ jobs:
         run: |
           ./gradlew :auth-legacy:assembleRelease
 
-      - name: List output files
-        run: ls auth-legacy/build/outputs/aar/
+      - name: Build the Core AAR
+        run: |
+          ./gradlew :core:assembleRelease
+
 
       - name: Upload AAR as artifact
         uses: actions/upload-artifact@v4
         with:
           name: auth-legacy-aar
           path: auth-legacy/build/outputs/aar/auth-legacy-release.aar
+
+      - name: Upload Core AAR as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: core-aar
+          path: core/build/outputs/aar/core-release.aar
