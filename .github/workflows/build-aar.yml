@@ -39,8 +39,11 @@ jobs:
         run: |
           ./gradlew :auth-legacy:assembleRelease
 
+      - name: List output files
+        run: ls auth-legacy/build/outputs/aar/
+
       - name: Upload AAR as artifact
         uses: actions/upload-artifact@v4
         with:
           name: auth-legacy-aar
-          path: app/build/outputs/aar/auth-legacy-release.aar
+          path: auth-legacy/build/outputs/aar/auth-legacy-release.aar
